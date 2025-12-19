@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grip - The ultimate street workout app. Create custom routines, find workout spots, track progress, and join a community of athletes.">
+    <meta name="keywords" content="street workout, calisthenics, workout app, fitness, outdoor gym, workout spots">
+    <title>Grip - Master Your Body. Own Your Streets.</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="assets/logo.jpg" alt="Grip Logo" class="logo-img">
+                <span class="logo-text">Grip</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#locations">Locations</a></li>
+            </ul>
+            <button class="nav-cta" onclick="scrollToHeroCTA()">Get Early Access</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Master Your Body.<br>
+                <span class="gradient-text">Own Your Streets.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Create custom workout routines, discover the best street workout spots, 
+                track your progress, and join a community of athletes pushing their limits.
+            </p>
+            
+            <!-- CTA Button & Email Form -->
+            <div class="cta-container" id="ctaContainer">
+                <button class="cta-button" id="ctaButton" onclick="revealEmailForm()">
+                    <span>Get Early Access</span>
+                    <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                
+                <form class="email-form" id="emailForm" onsubmit="handleEmailSubmit(event)">
+                    <div class="email-input-wrapper">
+                        <svg class="email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <input type="email" class="email-input" id="emailInput" placeholder="Enter your email..." required>
+                        <button type="submit" class="submit-button">
+                            <span>Join Waitlist</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="success-message" id="successMessage">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>You're on the list! We'll notify you when we launch.</span>
+                </div>
+            </div>
+            
+            <p class="hero-note">🚀 Join <span id="waitlistCount">2,847</span> athletes on the waitlist</p>
+        </div>
+        
+        <div class="hero-visual">
+            <img src="assets/iphone-mockup.png" alt="Grip App on iPhone" class="phone-mockup-image">
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2 class="section-title">Everything You Need to <span class="gradient-text">Level Up</span></h2>
+                <p class="section-subtitle">Powerful tools designed for street workout athletes at every level</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Custom Workouts</h3>
+                    <p class="feature-description">Build personalized routines with our exercise library. Mix strength, skills, and endurance for the perfect session.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon icon-orange">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Social Community</h3>
+                    <p class="feature-description">Follow athletes, share your progress, and get inspired by the community. Connect with workout partners nearby.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Spot Finder</h3>
+                    <p class="feature-description">Discover the best street workout locations near you. View equipment, ratings, and photos from the community.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon icon-orange">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Progress Tracking</h3>
+                    <p class="feature-description">Monitor your gains with detailed analytics. Track reps, sets, personal records, and see your improvement over time.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Workout Streaks</h3>
+                    <p class="feature-description">Build consistency with streak rewards. Stay motivated with daily goals and celebrate your dedication.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon icon-orange">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Challenges</h3>
+                    <p class="feature-description">Compete with the community in weekly challenges. Push your limits and climb the leaderboards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2 class="section-title">Start Training in <span class="gradient-text">3 Simple Steps</span></h2>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Create</h3>
+                        <p class="step-description">Build your perfect workout routine or choose from community-created programs tailored to your goals.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon-large">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-connector"></div>
+                
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Train</h3>
+                        <p class="step-description">Hit the bars with guided workouts. Track your sets, reps, and rest times in real-time.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon-large icon-orange">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-connector"></div>
+                
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Share</h3>
+                        <p class="step-description">Celebrate your progress with the community. Inspire others and get motivated by fellow athletes.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon-large">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="18" cy="5" r="3"/>
+                                <circle cx="6" cy="12" r="3"/>
+                                <circle cx="18" cy="19" r="3"/>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="community-content">
+                <div class="community-text">
+                    <span class="section-tag">Community</span>
+                    <h2 class="section-title">Join a Global Movement of <span class="gradient-text">Street Athletes</span></h2>
+                    <p class="community-description">
+                        Grip isn't just an app—it's a community of passionate athletes who believe 
+                        in the power of bodyweight training. Connect with like-minded people, 
+                        share your journey, and push each other to new heights.
+                    </p>
+                    
+                    <div class="community-stats">
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Athletes</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">120+</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">1M+</span>
+                            <span class="stat-label">Workouts</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="community-visual">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">M</div>
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Marcus Chen</span>
+                                <span class="testimonial-handle">@marcus_sw</span>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Grip completely changed how I train. Finding new spots and connecting with other athletes in my city has been incredible. The streak feature keeps me consistent!"</p>
+                        <div class="testimonial-stats">
+                            <span>🔥 156 day streak</span>
+                            <span>💪 847 workouts</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card floating">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar orange">S</div>
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Sofia Rodriguez</span>
+                                <span class="testimonial-handle">@sofia_bars</span>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"The community routines are 🔥! I've learned so many new progressions from other athletes."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-preview" id="locations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Locations</span>
+                <h2 class="section-title">Find Your Perfect <span class="gradient-text">Training Spot</span></h2>
+                <p class="section-subtitle">Discover street workout parks, outdoor gyms, and hidden gems near you</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-visual">
+                    <div class="map-overlay">
+                        <div class="map-pin pin-1">
+                            <div class="pin-pulse"></div>
+                            <div class="pin-dot"></div>
+                        </div>
+                        <div class="map-pin pin-2">
+                            <div class="pin-pulse"></div>
+                            <div class="pin-dot"></div>
+                        </div>
+                        <div class="map-pin pin-3">
+                            <div class="pin-pulse"></div>
+                            <div class="pin-dot"></div>
+                        </div>
+                        <div class="map-pin pin-4">
+                            <div class="pin-pulse"></div>
+                            <div class="pin-dot"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="spot-card">
+                        <div class="spot-image"></div>
+                        <div class="spot-info">
+                            <h4 class="spot-name">Central Park Bars</h4>
+                            <div class="spot-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (128 reviews)</span>
+                            </div>
+                            <div class="spot-equipment">
+                                <span class="equipment-tag">Pull-up bars</span>
+                                <span class="equipment-tag">Parallel bars</span>
+                                <span class="equipment-tag">Rings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Transform Your Training?</h2>
+                    <p class="cta-description">Be the first to know when Grip launches. Join thousands of athletes on the waitlist.</p>
+                    
+                    <div class="cta-container final" id="finalCtaContainer">
+                        <button class="cta-button" id="finalCtaButton" onclick="revealFinalEmailForm()">
+                            <span>Get Early Access</span>
+                            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        
+                        <form class="email-form" id="finalEmailForm" onsubmit="handleFinalEmailSubmit(event)">
+                            <div class="email-input-wrapper">
+                                <svg class="email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                                <input type="email" class="email-input" id="finalEmailInput" placeholder="Enter your email..." required>
+                                <button type="submit" class="submit-button">
+                                    <span>Join Waitlist</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div class="success-message" id="finalSuccessMessage">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>You're on the list! We'll notify you when we launch.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-decoration">
+                    <div class="decoration-ring ring-1"></div>
+                    <div class="decoration-ring ring-2"></div>
+                    <div class="decoration-ring ring-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <img src="assets/logo.jpg" alt="Grip Logo" class="logo-img">
+                        <span class="logo-text">Grip</span>
+                    </a>
+                    <p class="footer-tagline">Master Your Body. Own Your Streets.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#locations">Locations</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Grip. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
