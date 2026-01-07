@@ -32,7 +32,7 @@
                 <!-- <li><a href="#community">Community</a></li> -->
                 <!-- <li><a href="#locations">Locations</a></li> -->
             </ul>
-            <button class="nav-cta" onclick="scrollToHeroCTA()">Get Early Access</button>
+            <button class="nav-cta" onclick="scrollToHeroCTA()">Get the App</button>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -59,40 +59,17 @@
             </p>
             
             <!-- CTA Button & Email Form -->
-            <div class="cta-container" id="ctaContainer">
-                <button class="cta-button" id="ctaButton" onclick="revealEmailForm()">
-                    <span>Get Early Access</span>
-                    <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
-                
-                <form class="email-form" id="emailForm" onsubmit="handleEmailSubmit(event)">
-                    <div class="email-input-wrapper">
-                        <svg class="email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        <input type="email" class="email-input" id="emailInput" placeholder="Enter your email..." required>
-                        <button type="submit" class="submit-button">
-                            <span>Join Waitlist</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-                
-                <div class="success-message" id="successMessage">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
-                    <span>You're on the list! We'll notify you when we launch.</span>
-                </div>
+            <!-- Store Buttons -->
+            <div class="store-buttons" id="ctaContainer">
+                <a href="#" class="store-btn google-play">
+                    <!-- Icon will be added here -->
+                    <span>Get it on Google Play</span>
+                </a>
+                <a href="#" class="store-btn app-store">
+                    <!-- Icon will be added here -->
+                    <span>Download on the App Store</span>
+                </a>
             </div>
-            
-            <p class="hero-note">🚀 Join <span id="waitlistCount">2,847</span> athletes on the waitlist</p>
         </div>
         
         <div class="hero-visual">
@@ -365,39 +342,17 @@
             <div class="cta-card">
                 <div class="cta-content">
                     <h2 class="cta-title">Ready to Transform Your Training?</h2>
-                    <p class="cta-description">Be the first to know when Grip launches. Join thousands of athletes on the waitlist.</p>
+                    <p class="cta-description">Download Grip now and start transforming your street workout training.</p>
                     
-                    <div class="cta-container final" id="finalCtaContainer">
-                        <button class="cta-button" id="finalCtaButton" onclick="revealFinalEmailForm()">
-                            <span>Get Early Access</span>
-                            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </button>
-                        
-                        <form class="email-form" id="finalEmailForm" onsubmit="handleFinalEmailSubmit(event)">
-                            <div class="email-input-wrapper">
-                                <svg class="email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                    <polyline points="22,6 12,13 2,6"/>
-                                </svg>
-                                <input type="email" class="email-input" id="finalEmailInput" placeholder="Enter your email..." required>
-                                <button type="submit" class="submit-button">
-                                    <span>Join Waitlist</span>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </form>
-                        
-                        <div class="success-message" id="finalSuccessMessage">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                            <span>You're on the list! We'll notify you when we launch.</span>
-                        </div>
+                    <div class="store-buttons final" id="finalCtaContainer">
+                        <a href="#" class="store-btn google-play">
+                            <!-- Icon will be added here -->
+                            <span>Get it on Google Play</span>
+                        </a>
+                        <a href="#" class="store-btn app-store">
+                            <!-- Icon will be added here -->
+                            <span>Download on the App Store</span>
+                        </a>
                     </div>
                 </div>
                 

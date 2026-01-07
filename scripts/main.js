@@ -136,168 +136,18 @@ const EmailService = {
 };
 
 // ============================================
-// CTA BUTTON & EMAIL FORM INTERACTIONS
+// STORE BUTTON TRACKING
 // ============================================
 
-// Hero section CTA
-function revealEmailForm() {
-    const ctaButton = document.getElementById('ctaButton');
-    const emailForm = document.getElementById('emailForm');
-    
-    // Track CTA click
-    Analytics.track('cta_clicked', { location: 'hero' });
-    
-    // Hide button, show form
-    ctaButton.classList.add('hidden');
-    emailForm.classList.add('visible');
-    
-    // Focus the email input
-    setTimeout(() => {
-        document.getElementById('emailInput').focus();
-    }, 300);
-}
-
-// Final section CTA
-function revealFinalEmailForm() {
-    const ctaButton = document.getElementById('finalCtaButton');
-    const emailForm = document.getElementById('finalEmailForm');
-    
-    // Track CTA click
-    Analytics.track('cta_clicked', { location: 'final_section' });
-    
-    // Hide button, show form
-    ctaButton.classList.add('hidden');
-    emailForm.classList.add('visible');
-    
-    // Focus the email input
-    setTimeout(() => {
-        document.getElementById('finalEmailInput').focus();
-    }, 300);
+// Track store button clicks
+function trackStoreClick(store) {
+    Analytics.track('store_button_clicked', { store: store });
 }
 
 // Scroll to hero CTA (for nav button)
 function scrollToHeroCTA() {
     const heroSection = document.getElementById('hero');
     heroSection.scrollIntoView({ behavior: 'smooth' });
-    
-    // Trigger CTA reveal after scroll
-    setTimeout(() => {
-        revealEmailForm();
-    }, 500);
-}
-
-// Handle hero email form submission
-async function handleEmailSubmit(event) {
-    event.preventDefault();
-    
-    const emailInput = document.getElementById('emailInput');
-    const emailForm = document.getElementById('emailForm');
-    const successMessage = document.getElementById('successMessage');
-    const submitButton = emailForm.querySelector('.submit-button');
-    
-    const email = emailInput.value.trim();
-    
-    if (!email || !isValidEmail(email)) {
-        shakeElement(emailInput);
-        return;
-    }
-    
-    // Show loading state
-    submitButton.disabled = true;
-    submitButton.innerHTML = '<span>Joining...</span>';
-    
-    try {
-        await EmailService.subscribe(email, 'hero');
-        
-        // Hide form, show success
-        emailForm.classList.remove('visible');
-        emailForm.style.display = 'none';
-        successMessage.classList.add('visible');
-        
-        // Update waitlist count
-        updateWaitlistCount();
-        
-    } catch (error) {
-        console.error('Subscription error:', error);
-        submitButton.disabled = false;
-        submitButton.innerHTML = '<span>Try Again</span>';
-        shakeElement(submitButton);
-    }
-}
-
-// Handle final section email form submission
-async function handleFinalEmailSubmit(event) {
-    event.preventDefault();
-    
-    const emailInput = document.getElementById('finalEmailInput');
-    const emailForm = document.getElementById('finalEmailForm');
-    const successMessage = document.getElementById('finalSuccessMessage');
-    const submitButton = emailForm.querySelector('.submit-button');
-    
-    const email = emailInput.value.trim();
-    
-    if (!email || !isValidEmail(email)) {
-        shakeElement(emailInput);
-        return;
-    }
-    
-    // Show loading state
-    submitButton.disabled = true;
-    submitButton.innerHTML = '<span>Joining...</span>';
-    
-    try {
-        await EmailService.subscribe(email, 'final_section');
-        
-        // Hide form, show success
-        emailForm.classList.remove('visible');
-        emailForm.style.display = 'none';
-        successMessage.classList.add('visible');
-        
-    } catch (error) {
-        console.error('Subscription error:', error);
-        submitButton.disabled = false;
-        submitButton.innerHTML = '<span>Try Again</span>';
-        shakeElement(submitButton);
-    }
-}
-
-// ============================================
-// UTILITY FUNCTIONS
-// ============================================
-
-// Validate email format
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Shake animation for invalid input
-function shakeElement(element) {
-    element.style.animation = 'shake 0.5s ease';
-    setTimeout(() => {
-        element.style.animation = '';
-    }, 500);
-}
-
-// Add shake animation CSS
-const shakeStyles = document.createElement('style');
-shakeStyles.textContent = `
-    @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-        20%, 40%, 60%, 80% { transform: translateX(5px); }
-    }
-`;
-document.head.appendChild(shakeStyles);
-
-// Update waitlist count display
-function updateWaitlistCount() {
-    const countElement = document.getElementById('waitlistCount');
-    if (countElement) {
-        const currentCount = parseInt(countElement.textContent.replace(/,/g, ''));
-        const newCount = currentCount + 1;
-        countElement.textContent = newCount.toLocaleString();
-    }
 }
 
 // ============================================
@@ -475,12 +325,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================
 
 // Make functions globally available
-window.revealEmailForm = revealEmailForm;
-window.revealFinalEmailForm = revealFinalEmailForm;
-window.handleEmailSubmit = handleEmailSubmit;
-window.handleFinalEmailSubmit = handleFinalEmailSubmit;
 window.scrollToHeroCTA = scrollToHeroCTA;
+window.trackStoreClick = trackStoreClick;
 
-// Make analytics and email service globally available for debugging
+// Make analytics globally available for debugging
 window.Analytics = Analytics;
-window.EmailService = EmailService;
