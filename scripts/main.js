@@ -301,6 +301,53 @@ function showConsoleBranding() {
 }
 
 // ============================================
+// COOKIE CONSENT
+// ============================================
+
+function initCookieConsent() {
+    const cookieBanner = document.getElementById('cookieConsent');
+    const acceptBtn = document.getElementById('cookieAccept');
+    const declineBtn = document.getElementById('cookieDecline');
+
+    if (!cookieBanner) return;
+
+    // Check if user has already made a choice
+    const consent = localStorage.getItem('cookieConsent');
+
+    if (!consent) {
+        // Show banner after a short delay
+        setTimeout(() => {
+            cookieBanner.classList.add('visible');
+        }, 1000);
+    }
+
+    // Handle accept
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.remove('visible');
+
+            // Grant full analytics consent
+            if (typeof grantAnalyticsConsent === 'function') {
+                grantAnalyticsConsent();
+            }
+
+            Analytics.track('cookie_consent', { choice: 'accepted' });
+        });
+    }
+
+    // Handle decline
+    if (declineBtn) {
+        declineBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookieBanner.classList.remove('visible');
+
+            Analytics.track('cookie_consent', { choice: 'declined' });
+        });
+    }
+}
+
+// ============================================
 // INITIALIZATION
 // ============================================
 
@@ -311,10 +358,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initScrollAnimations();
     initPageAnalytics();
-    
+    initCookieConsent();
+
     // Show console branding
     showConsoleBranding();
-    
+
     // Log initial CTA click count
     const ctaClicks = Analytics.getClickCount('cta_clicked');
     console.log(`📊 Total CTA clicks so far: ${ctaClicks}`);

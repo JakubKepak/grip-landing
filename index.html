@@ -17,6 +17,37 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <!-- Google Analytics with Consent Mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJKG17EMKC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        // Set default consent state (denied = basic mode, no cookies)
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
+        });
+
+        // Initialize GA (runs in basic mode by default)
+        gtag('js', new Date());
+        gtag('config', 'G-LJKG17EMKC');
+
+        // Function to grant full consent
+        function grantAnalyticsConsent() {
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+            });
+        }
+
+        // Check if user has already consented
+        if (localStorage.getItem('cookieConsent') === 'accepted') {
+            grantAnalyticsConsent();
+        }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -467,6 +498,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-content">
+            <p>We use cookies to analyze site traffic and improve your experience. By clicking "Accept", you consent to our use of cookies.</p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-decline" id="cookieDecline">Decline</button>
+                <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Accept</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
